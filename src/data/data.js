@@ -74,3 +74,35 @@ export const breakPoints = [
 		itemsToShow: 3,
 	},
 ];
+
+export const plansEN = {
+	free: {
+		yes: ["Recommended diets", "Create your own personal diet", "See restaurants and markets in the map"],
+		no: ["No Ads", "Find information about products instantly", "24/7 Chatbot", "Recipes for meals"],
+	},
+	premium: [
+		"Recommended diets",
+		"Create your own personal diet",
+		"See restaurants and markets in the map",
+		"No Ads",
+		"Find information about products instantly",
+		"24/7 Chatbot",
+		"Recipes for meals",
+	],
+};
+
+export const plansAL = {
+	free: {
+		yes: ["Dieta te rekomanduara", "Krijoni dietën tuaj personale", "Shih restorantet dhe marketet në hartë"],
+		no: ["Pa reklama", "Gjeni informacione për produktet menjëherë", "24/7 Chatbot", "Receta për ushqime"],
+	},
+	premium: [
+		"Dieta te rekomanduara",
+		"Krijoni dietën tuaj personale",
+		"Shih restorantet dhe marketet në hartë",
+		"Pa reklama",
+		"Gjeni informacione për produktet menjëherë",
+		"24/7 Chatbot",
+		"Receta për ushqime",
+	],
+};

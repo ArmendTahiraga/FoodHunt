@@ -1,4 +1,5 @@
-* {	margin: 0;
+* {
+	margin: 0;
 	box-sizing: border-box;
 	color: #141414;
 	font-size: 1rem;
@@ -125,11 +126,13 @@ button {
 }
 
 .login,
-.sign-up {
+.sign-up,
+.plan-button {
 	border: 0;
 }
 
-.sign-up {
+.sign-up,
+.plan-button {
 	background-color: #ee2f21;
 	color: #fff !important;
 	border-radius: 7px;
@@ -493,6 +496,62 @@ form {
 	color: #fff !important;
 	font-weight: 600;
 	font-size: 1.4rem;
+}
+
+.plan-container {
+	width: 60%;
+	margin: 10px auto 15px auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.plan {
+	width: 270px;
+	height: 400px;
+	padding: 6px 12px;
+	border-radius: 12px;
+	border: 2px solid #ee2f21;
+	background: #363636;
+	transition: border-color, box-shadow 0.3s linear;
+}
+
+.plan:hover,
+.plan:focus {
+	border-color: transparent;
+	box-shadow: 0 0 20px 5px #fa5246;
+}
+
+.plan-title {
+	text-align: center;
+	font-size: 1.4rem;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+
+.benefit {
+	display: flex;
+	align-items: center;
+	margin-bottom: 13px;
+}
+
+.benefit-detail {
+	width: 70%;
+	font-size: 0.9rem;
+	margin-left: 12px;
+	line-height: 1;
+}
+
+.plan-button {
+	margin-top: 10px;
+	font-weight: 500;
+}
+
+.payment-plan-title {
+	margin: 10px 0;
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 600;
 }
 
 @keyframes spinner-4t3wzl {
