@@ -468,7 +468,7 @@ form {
 	height: 15.7px;
 	background-color: #ee2f21;
 	border-radius: 50%;
-	animation: spinner-4t3wzl 1.25s infinite backwards;
+	animation: loading-animation 1.25s infinite backwards;
 }
 
 .spinner div:nth-child(1) {
@@ -547,14 +547,24 @@ form {
 	font-weight: 500;
 }
 
-.payment-plan-title {
-	margin: 10px 0;
+.payment-plan-title,
+.map-title {
+	margin: 100px auto 30px auto;
 	text-align: center;
 	font-size: 2rem;
 	font-weight: 600;
+	width: 50%;
 }
 
-@keyframes spinner-4t3wzl {
+.map-container {
+	height: 600px;
+	width: 60%;
+	border-radius: 15px;
+	overflow: hidden;
+	margin: 20px auto;
+}
+
+@keyframes loading-animation {
 	0% {
 		transform: rotate(0deg) translateX(-200%);
 	}

@@ -1,5 +1,4 @@
-import React from "react";
-import Carousel from "react-elastic-carousel";
+import React from "react";import Carousel from "react-elastic-carousel";
 import NavBar from "../Components/NavBar";
 import Hero from "../Components/Hero";
 import Diets from "../Components/Diets";
@@ -70,8 +69,13 @@ function App() {
 			</section>
 			<h1 className="payment-plan-title">{language === "EN" ? "Payment plans" : "Planet e pagesës"}</h1>
 			<PaymentPlan />
-			{/*<Map />
-			<Footer />*/}
+			<div className="map-title">
+				{language === "EN"
+					? "Find amazing restaurants and markets that work with us"
+					: "Gjeni restorante dhe markete të mrekullueshme që punojnë me ne"}
+			</div>
+			<Map />
+			{/* <Footer /> */}
 		</>
 	);
 }
