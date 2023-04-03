@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
+import React, { createContext, useContext, useState, useEffect } from "react";import axios from "axios";
 const StateContext = createContext();
 
 const url = "https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary";
