@@ -1,4 +1,5 @@
-import React from "react";import Carousel from "react-elastic-carousel";
+import React from "react";
+import Carousel from "react-elastic-carousel";
 import NavBar from "../Components/NavBar";
 import Hero from "../Components/Hero";
 import Diets from "../Components/Diets";

@@ -1,5 +1,7 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";import axios from "axios";
 const StateContext = createContext();
+
+const url = "https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary";
 
 export function ContextProvider({ children }) {
 	const [language, setLanguage] = useState("EN");
@@ -9,6 +11,45 @@ export function ContextProvider({ children }) {
 	const [isSearchBarOnTop, setIsSearchBarOnTop] = useState(false);
 	const [showLoader, setShowLoader] = useState(false);
 	const [error, setError] = useState(false);
+	const [places, setPlaces] = useState([]);
+	const [coordinates, setCoordinates] = useState({});
+	const [bounds, setBounds] = useState({});
+	const [isReady, setIsReady] = useState(false);
+
+	async function getPlacesData(southWest, northEast) {
+		try {
+			const options = {
+				method: "GET",
+				params: {
+					bl_latitude: southWest.lat,
+					tr_latitude: northEast.lat,
+					bl_longitude: southWest.lng,
+					tr_longitude: northEast.lng,
+				},
+				headers: {
+					"X-RapidAPI-Key": "3e00f26979msh62d2ccabc93f160p1e650ajsn8261f9fd6ccf",
+					"X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+				},
+			};
+
+			const {
+				data: { data },
+			} = await axios.get(url, options);
+
+			return data;
+		} catch (error) {}
+	}
+
+	useEffect(() => {
+		setCoordinates({ lat: 42.0693, lng: 19.5033 });
+	}, []);
+
+	useEffect(() => {
+		getPlacesData(bounds.southWest, bounds.northEast).then((data) => {
+			setIsReady(true);
+			setPlaces(data);
+		});
+	}, [coordinates, bounds]);
 
 	function changeBackground() {
 		if (window.scrollY >= 60) {
@@ -64,6 +105,10 @@ export function ContextProvider({ children }) {
 				isSearchBarOnTop,
 				showLoader,
 				error,
+				coordinates,
+				setCoordinates,
+				setBounds,
+				places,
 			}}
 		>
 			{children}

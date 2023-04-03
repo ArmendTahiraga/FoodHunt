@@ -1,5 +1,4 @@
-* {
-	margin: 0;
+* {	margin: 0;
 	box-sizing: border-box;
 	color: #141414;
 	font-size: 1rem;
@@ -562,6 +561,30 @@ form {
 	border-radius: 15px;
 	overflow: hidden;
 	margin: 20px auto;
+}
+
+.restaurant-cards-container {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+
+.restaurant-cards-container:hover {
+	z-index: 2;
+}
+
+.restaurant-card {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100px;
+	height: 100px;
+}
+
+.restaurant-card img {
+	width: 100%;
+	cursor: pointer;
 }
 
 @keyframes loading-animation {
