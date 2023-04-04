@@ -1,4 +1,5 @@
-* {	margin: 0;
+* {
+	margin: 0;
 	box-sizing: border-box;
 	color: #141414;
 	font-size: 1rem;
@@ -557,7 +558,7 @@ form {
 
 .map-container {
 	height: 600px;
-	width: 60%;
+	width: 80%;
 	border-radius: 15px;
 	overflow: hidden;
 	margin: 20px auto;
@@ -566,7 +567,9 @@ form {
 .restaurant-cards-container {
 	position: absolute;
 	transform: translate(-50%, -50%);
+	border-radius: 5px;
 	z-index: 1;
+	transition: z-index 0.3s ease;
 }
 
 .restaurant-cards-container:hover {
@@ -574,17 +577,43 @@ form {
 }
 
 .restaurant-card {
-	padding: 10px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	background-color: #ee2f21;
+	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	width: 100px;
-	height: 100px;
+}
+
+.restaurant-name,
+.restaurant-rating {
+	font-size: 0.7rem;
+	padding: 0 10px;
+	text-align: center;
+	font-weight: 400;
+}
+
+.restaurant-name {
+	margin-bottom: 3px;
 }
 
 .restaurant-card img {
-	width: 100%;
 	cursor: pointer;
+	max-height: 80px;
+}
+
+.restaurant-rating {
+	margin: 3px 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.star {
+	width: 14px !important;
+	height: 14px !important;
 }
 
 @keyframes loading-animation {

@@ -1,7 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from "react";import axios from "axios";
+import React, { createContext, useContext, useState, useEffect } from "react";
 const StateContext = createContext();
-
-const url = "https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary";
 
 export function ContextProvider({ children }) {
 	const [language, setLanguage] = useState("EN");
@@ -12,44 +10,55 @@ export function ContextProvider({ children }) {
 	const [showLoader, setShowLoader] = useState(false);
 	const [error, setError] = useState(false);
 	const [places, setPlaces] = useState([]);
-	const [coordinates, setCoordinates] = useState({});
-	const [bounds, setBounds] = useState({});
-	const [isReady, setIsReady] = useState(false);
+	const [coordinates, setCoordinates] = useState({ lat: 42.06492, lng: 19.511787 });
+	const [bounds, setBounds] = useState({
+		northEast: { lat: 42.08522678162342, lng: 19.53342657165527 },
+		southWest: { lat: 42.05336922135908, lng: 19.473173428344722 },
+	});
 
-	async function getPlacesData(southWest, northEast) {
-		try {
-			const options = {
-				method: "GET",
-				params: {
-					bl_latitude: southWest.lat,
-					tr_latitude: northEast.lat,
-					bl_longitude: southWest.lng,
-					tr_longitude: northEast.lng,
-				},
-				headers: {
-					"X-RapidAPI-Key": "3e00f26979msh62d2ccabc93f160p1e650ajsn8261f9fd6ccf",
-					"X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
-				},
-			};
+	function getPlacesData(southWest, northEast) {
+		const options = {
+			method: "GET",
+			headers: {
+				"X-RapidAPI-Key": "3e00f26979msh62d2ccabc93f160p1e650ajsn8261f9fd6ccf",
+				"X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+			},
+		};
 
-			const {
-				data: { data },
-			} = await axios.get(url, options);
-
-			return data;
-		} catch (error) {}
+		fetch(
+			`https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary?bl_latitude=${southWest.lat}&tr_latitude=${northEast.lat}&bl_longitude=${southWest.lng}&tr_longitude=${northEast.lng}`,
+			options
+		)
+			.then((response) => response.json())
+			.then((response) => {
+				let finalResponse = [];
+				for (let i = 0; i < response.data.length; i++) {
+					if (response.data[i].name === "Pasta te Zenga") {
+						finalResponse.push(response.data[i]);
+					} else if (response.data[i].name === "Bar Restaurant Elita Shkoder") {
+						finalResponse.push(response.data[i]);
+					} else if (response.data[i].name === "Puri") {
+						finalResponse.push(response.data[i]);
+					} else if (response.data[i].name === "Tradita Geg & Tosk") {
+						finalResponse.push(response.data[i]);
+					} else if (response.data[i].name === "Vila Bekteshi") {
+						finalResponse.push(response.data[i]);
+					} else if (response.data[i].name === "Rozafa Fish Seafood Restaurant") {
+						finalResponse.push(response.data[i]);
+					} else if (response.data[i].name === "Proper Pizza Shkoder") {
+						finalResponse.push(response.data[i]);
+					} else if (response.data[i].name === "Bar Restorant ARBRI") {
+						finalResponse.push(response.data[i]);
+					}
+				}
+				console.log(finalResponse);
+				setPlaces(finalResponse);
+			})
+			.catch((err) => console.error(err));
 	}
-
 	useEffect(() => {
-		setCoordinates({ lat: 42.0693, lng: 19.5033 });
+		getPlacesData(bounds.southWest, bounds.northEast);
 	}, []);
-
-	useEffect(() => {
-		getPlacesData(bounds.southWest, bounds.northEast).then((data) => {
-			setIsReady(true);
-			setPlaces(data);
-		});
-	}, [coordinates, bounds]);
 
 	function changeBackground() {
 		if (window.scrollY >= 60) {
