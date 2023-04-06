@@ -26,7 +26,10 @@ function NavBar() {
 							{language === "EN" ? "Home" : "Shtëpi"}
 						</h2>
 					</Link>
-					<h2 className="nav-item">{language === "EN" ? "Diets" : "Dietat"}</h2>
+					<a href="#diets" className="nav-item linkToSection">
+						{language === "EN" ? "Diets" : "Dietat"}
+					</a>
+
 					<button className="login">{language === "EN" ? "Login" : "Hyr"}</button>
 					<button className="sign-up">{language === "EN" ? "Sign Up" : "Regjistrohu"}</button>
 					<h4

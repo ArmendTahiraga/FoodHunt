@@ -1,5 +1,4 @@
-import React from "react";
-import Carousel from "react-elastic-carousel";
+import React from "react";import Carousel from "react-elastic-carousel";
 import NavBar from "../Components/NavBar";
 import Hero from "../Components/Hero";
 import Diets from "../Components/Diets";
@@ -39,6 +38,7 @@ function App() {
 		<>
 			<NavBar />
 			<Hero />
+			<p id="diets"></p>
 			<h1 className="diet-title">{language === "EN" ? "Diets" : "Dieta"}</h1>
 			<Carousel breakPoints={breakPoints} enableTilt={true} easing="ease">
 				{dietArray}
@@ -76,7 +76,8 @@ function App() {
 					: "Gjeni restorante dhe markete të mrekullueshme që punojnë me ne"}
 			</div>
 			<Map />
-			{/* <Footer /> */}
+			<div className="wave"></div>
+			<Footer />
 		</>
 	);
 }
