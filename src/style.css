@@ -1,4 +1,5 @@
-* {	margin: 0;
+* {
+	margin: 0;
 	box-sizing: border-box;
 	color: #141414;
 	font-size: 1rem;
@@ -80,9 +81,10 @@ button {
 }
 
 .nav-item,
-.login,
+.about,
 .sign-up,
-.language {
+.language,
+.greeting {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-size: 1.1rem;
@@ -91,15 +93,19 @@ button {
 	position: relative;
 }
 
+.greeting {
+	cursor: default;
+}
+
 .nav-item:hover,
-.login:hover,
+.about:hover,
 .sign-up:hover,
 .language:hover {
 	color: #65ff62;
 }
 
 .nav-item::after,
-.login::after,
+.about::after,
 .language::after {
 	display: block;
 	content: "";
@@ -112,7 +118,7 @@ button {
 }
 
 .nav-item:hover::after,
-.login:hover::after,
+.about:hover::after,
 .language:hover::after {
 	width: 100%;
 	background: #65ff62;
@@ -124,11 +130,11 @@ button {
 	height: 60px;
 }
 
-.login {
+.about {
 	background: 0;
 }
 
-.login,
+.about,
 .sign-up,
 .plan-button {
 	border: 0;
@@ -722,6 +728,72 @@ form {
 
 .nav-item a {
 	text-decoration: none;
+}
+
+.sign-up-container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #292d35;
+	border-radius: 20px;
+	width: 300px;
+	height: 400px;
+	z-index: 999;
+}
+
+.form-control {
+	display: block;
+	position: relative;
+	margin: 20px 0 40px;
+	width: 190px;
+}
+
+.form-control input {
+	background-color: transparent;
+	border: 0;
+	border-bottom: 2px #fff solid;
+	display: block;
+	width: 100%;
+	padding: 15px 0 5px 0;
+	font-size: 1rem;
+	color: #fff;
+	transition: border-bottom-color 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus,
+.form-control input:valid {
+	outline: 0;
+	border-bottom-color: #ee2f21;
+}
+
+.form-control label {
+	position: absolute;
+	top: 15px;
+	left: 0;
+	pointer-events: none;
+}
+
+.form-control label span {
+	display: inline-block;
+	font-size: 1rem;
+	min-width: 5px;
+	color: #d4d4d4;
+	transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+	color: #ee2f21;
+	transform: translateY(-30px);
+}
+
+.material-symbols-outlined {
+	transition: transform 0.3s ease-in;
+}
+
+.material-symbols-outlined:hover {
+	transform: rotate(180deg);
 }
 
 @keyframes loading-animation {

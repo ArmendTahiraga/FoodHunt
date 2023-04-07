@@ -15,6 +15,26 @@ export function ContextProvider({ children }) {
 		northEast: { lat: 42.08522678162342, lng: 19.53342657165527 },
 		southWest: { lat: 42.05336922135908, lng: 19.473173428344722 },
 	});
+	const [signUpDetails, setSignUpDetails] = useState({
+		name: "",
+		email: "",
+		password: "",
+	});
+	const [accountDetails, setAccountDetails] = useState({});
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+	useEffect(() => {
+		if (JSON.parse(localStorage.getItem("account"))) {
+			setAccountDetails(JSON.parse(localStorage.getItem("account")));
+			setIsLoggedIn(true);
+		}
+	}, []);
+
+	function handleSignUp() {
+		localStorage.setItem("account", JSON.stringify(signUpDetails));
+		setAccountDetails(JSON.parse(localStorage.getItem("account")));
+		setIsLoggedIn(true);
+	}
 
 	function getPlacesData(southWest, northEast) {
 		const options = {
@@ -118,6 +138,10 @@ export function ContextProvider({ children }) {
 				setCoordinates,
 				setBounds,
 				places,
+				handleSignUp,
+				setSignUpDetails,
+				isLoggedIn,
+				accountDetails,
 			}}
 		>
 			{children}

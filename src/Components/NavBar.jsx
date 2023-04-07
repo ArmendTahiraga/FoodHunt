@@ -1,10 +1,9 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React from "react";import { Link, useLocation } from "react-router-dom";
 import logo from "../pictures/LogoBardh60.svg";
 import { useStateContext } from "../ContextProvider";
 
 function NavBar() {
-	const { language, updateLanguage, navbarBackground } = useStateContext();
+	const { language, updateLanguage, navbarBackground, isLoggedIn, accountDetails } = useStateContext();
 	const location = useLocation();
 
 	return (
@@ -29,9 +28,18 @@ function NavBar() {
 					<a href="#diets" className="nav-item linkToSection">
 						{language === "EN" ? "Diets" : "Dietat"}
 					</a>
-
-					<button className="login">{language === "EN" ? "Login" : "Hyr"}</button>
-					<button className="sign-up">{language === "EN" ? "Sign Up" : "Regjistrohu"}</button>
+					<a href="#about" className="about">
+						{language === "EN" ? "About" : "About"}
+					</a>
+					{isLoggedIn ? (
+						<p className="greeting">
+							{language === "EN" ? "Hello" : "Përshendetje"} {accountDetails.name}
+						</p>
+					) : (
+						<Link to={"/sign-up"} className="sign-up">
+							{language === "EN" ? "Sign Up" : "Regjistrohu"}
+						</Link>
+					)}
 					<h4
 						className="language"
 						onClick={() => updateLanguage()}

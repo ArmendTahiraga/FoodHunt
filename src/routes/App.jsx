@@ -1,4 +1,5 @@
-import React from "react";import Carousel from "react-elastic-carousel";
+import React from "react";
+import Carousel from "react-elastic-carousel";
 import NavBar from "../Components/NavBar";
 import Hero from "../Components/Hero";
 import Diets from "../Components/Diets";
@@ -11,6 +12,7 @@ import Map from "../Components/Map";
 import Footer from "../Components/Footer";
 import { breakPoints, dietDataEN, dietDataAL } from "../data/data";
 import { useStateContext } from "../ContextProvider";
+import { Outlet } from "react-router-dom";
 
 function App() {
 	const { language, searchResults, isSearchBarOnTop, showLoader, error } = useStateContext();
@@ -36,6 +38,9 @@ function App() {
 
 	return (
 		<>
+			<div>
+				<Outlet />
+			</div>
 			<NavBar />
 			<Hero />
 			<p id="diets"></p>
