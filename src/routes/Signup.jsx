@@ -7,9 +7,10 @@ function SignUp() {
 
 	return (
 		<div className="sign-up-container">
-			<Link to="/">
+			<Link to="/" className="close">
 				<span className="material-symbols-outlined">close</span>
 			</Link>
+			<h2 className="sign-up-title">{language === "EN" ? "Sign Up" : "Regjistrohu"}</h2>
 			<div className="form-control">
 				<input
 					type="value"
@@ -85,10 +86,7 @@ function SignUp() {
 					)}
 				</label>
 			</div>
-			<Link to="/login">
-				<p>{language === "EN" ? "Already have an account, login now!" : "E keni një llogari, hyr tani!"}</p>
-			</Link>
-			<Link to="/" onClick={handleSignUp}>
+			<Link to="/" onClick={handleSignUp} className="sign-up-button">
 				{language === "EN" ? "Sign Up" : "Regjistrohu"}
 			</Link>
 		</div>

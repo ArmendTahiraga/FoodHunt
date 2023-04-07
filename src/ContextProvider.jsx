@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-const StateContext = createContext();
+import React, { createContext, useContext, useState, useEffect } from "react";const StateContext = createContext();
 
 export function ContextProvider({ children }) {
 	const [language, setLanguage] = useState("EN");
@@ -31,9 +30,12 @@ export function ContextProvider({ children }) {
 	}, []);
 
 	function handleSignUp() {
-		localStorage.setItem("account", JSON.stringify(signUpDetails));
-		setAccountDetails(JSON.parse(localStorage.getItem("account")));
-		setIsLoggedIn(true);
+		if (signUpDetails.name != "" && signUpDetails.email != "" && signUpDetails.password != "") {
+			console.log(signUpDetails);
+			localStorage.setItem("account", JSON.stringify(signUpDetails));
+			setAccountDetails(JSON.parse(localStorage.getItem("account")));
+			setIsLoggedIn(true);
+		}
 	}
 
 	function getPlacesData(southWest, northEast) {

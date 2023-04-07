@@ -1,4 +1,5 @@
-import React from "react";import { Link, useLocation } from "react-router-dom";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../pictures/LogoBardh60.svg";
 import { useStateContext } from "../ContextProvider";
 
