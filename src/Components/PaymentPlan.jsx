@@ -1,5 +1,5 @@
-import React from "react";
-import { useStateContext } from "../ContextProvider";
+import React from "react";import { useStateContext } from "../ContextProvider";
+import { Link } from "react-router-dom";
 import { plansAL, plansEN } from "../data/data";
 import check from "../pictures/check.svg";
 import x from "../pictures/x.svg";
@@ -42,7 +42,7 @@ function PaymentPlan() {
 						  ))}
 				</div>
 				<button className="plan-button" style={planButtonStyle}>
-					{language === "EN" ? "Choose plan" : "Zgjidh planin"}
+					<Link to="/not-available">{language === "EN" ? "Choose plan" : "Zgjidh planin"}</Link>
 				</button>
 			</div>
 			<div className="premium plan">
@@ -63,7 +63,7 @@ function PaymentPlan() {
 						  ))}
 				</div>
 				<button className="plan-button" style={planButtonStyle}>
-					{language === "EN" ? "Choose plan" : "Zgjidh planin"}
+					<Link to="/not-available">{language === "EN" ? "Choose plan" : "Zgjidh planin"}</Link>
 				</button>
 			</div>
 		</div>

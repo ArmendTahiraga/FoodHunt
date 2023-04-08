@@ -1,5 +1,4 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React from "react";import { Link, useLocation } from "react-router-dom";
 import logo from "../pictures/LogoBardh60.svg";
 import { useStateContext } from "../ContextProvider";
 
@@ -29,8 +28,8 @@ function NavBar() {
 					<a href="#diets" className="nav-item linkToSection">
 						{language === "EN" ? "Diets" : "Dietat"}
 					</a>
-					<a href="#about" className="about">
-						{language === "EN" ? "About" : "About"}
+					<a href="#map" className="about">
+						{language === "EN" ? "Map" : "Harta"}
 					</a>
 					{isLoggedIn ? (
 						<p className="greeting">

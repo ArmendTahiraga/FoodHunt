@@ -12,7 +12,7 @@ import Map from "../Components/Map";
 import Footer from "../Components/Footer";
 import { breakPoints, dietDataEN, dietDataAL } from "../data/data";
 import { useStateContext } from "../ContextProvider";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 function App() {
 	const { language, searchResults, isSearchBarOnTop, showLoader, error } = useStateContext();
@@ -56,7 +56,9 @@ function App() {
 							: `Shfletoni një databazë plot të dhëna per ushqime të shijshme. Gjeni informacion për mbi 115 mijë vakte duke përfshirë
 						përbërësit, proteinat, kaloritë dhe yndyrnat.`}
 					</h2>
-					<button className="sign-up">{language === "EN" ? "Get full access!" : "Fito akses të plotë"}</button>
+					<button className="sign-up">
+						<Link to="/not-available">{language === "EN" ? "Get full access!" : "Fito akses të plotë"}</Link>
+					</button>
 				</div>
 				<div className="right">
 					{isSearchBarOnTop ? <SearchBar /> : <SearchBar2 />}
@@ -75,6 +77,7 @@ function App() {
 			</section>
 			<h1 className="payment-plan-title">{language === "EN" ? "Payment plans" : "Planet e pagesës"}</h1>
 			<PaymentPlan />
+			<div id="map"></div>
 			<div className="map-title">
 				{language === "EN"
 					? "Find amazing restaurants and markets that work with us"
