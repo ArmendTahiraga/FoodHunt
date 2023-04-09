@@ -1,4 +1,4 @@
-* {
+/*----------------------------------------------------General CSS----------------------------------------------------*/* {
 	margin: 0;
 	text-decoration: none;
 	box-sizing: border-box;
@@ -42,6 +42,10 @@ button {
 	cursor: pointer;
 }
 
+/*----------------------------------------------------
+Navbar CSS
+----------------------------------------------------*/
+
 .nav-container {
 	background-color: transparent;
 	position: fixed;
@@ -67,7 +71,6 @@ button {
 .nav .left * {
 	display: inline;
 	margin-left: 30px;
-	text-decoration: none;
 }
 
 .nav .right {
@@ -77,7 +80,6 @@ button {
 }
 
 .nav .right * {
-	text-decoration: none;
 	margin-left: 40px;
 }
 
@@ -159,6 +161,112 @@ button {
 	font-size: 0.9rem;
 }
 
+.hamburger {
+	position: absolute;
+	z-index: 999;
+	width: 20px;
+	height: 10px;
+	position: relative;
+	margin: 11.1px auto;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
+	cursor: pointer;
+}
+
+.hamburger span {
+	display: block;
+	position: absolute;
+	height: 3px;
+	width: 100%;
+	background: #65ff62;
+	border-radius: 9px;
+	opacity: 1;
+	left: 0;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: 0.25s ease-in-out;
+	-moz-transition: 0.25s ease-in-out;
+	-o-transition: 0.25s ease-in-out;
+	transition: 0.25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+	top: 0px;
+}
+
+.hamburger span:nth-child(2),
+.hamburger span:nth-child(3) {
+	top: 8px;
+}
+
+.hamburger span:nth-child(4) {
+	top: 16px;
+}
+
+.hamburger.open span:nth-child(1) {
+	top: 8px;
+	width: 0%;
+	left: 50%;
+}
+
+.hamburger.open span:nth-child(2) {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.hamburger.open span:nth-child(3) {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.hamburger.open span:nth-child(4) {
+	top: 8px;
+	width: 0%;
+	left: 50%;
+}
+
+@keyframes an {
+	0% {
+		opacity: 0;
+		transform: translateX(140px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.nav .left * {
+		margin-left: 0;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.nav {
+		width: 65%;
+	}
+	.nav .right * {
+		margin-left: 0;
+	}
+}
+
+/*----------------------------------------------------
+Hero CSS
+----------------------------------------------------*/
+
 .hero {
 	background-color: #777777;
 	background-size: cover;
@@ -195,6 +303,10 @@ button {
 .treasure {
 	color: rgb(255, 228, 73);
 }
+
+/*----------------------------------------------------
+Diet section CSS
+----------------------------------------------------*/
 
 .diet-title {
 	color: #fff;
@@ -300,6 +412,10 @@ button {
 	background-color: #fff !important;
 }
 
+/*----------------------------------------------------
+Search section CSS
+----------------------------------------------------*/
+
 .search-section {
 	width: 100%;
 	height: 400px;
@@ -389,7 +505,6 @@ form {
 }
 .search-section .left .sign-up * {
 	font-weight: 600;
-	text-decoration: none;
 	color: #ee2f21 !important;
 }
 
@@ -518,6 +633,10 @@ form {
 	font-size: 1.4rem;
 }
 
+/*----------------------------------------------------
+Payment plan section CSS
+----------------------------------------------------*/
+
 .plan-container {
 	width: 60%;
 	margin: 10px auto 15px auto;
@@ -570,7 +689,18 @@ form {
 	font-weight: 500;
 }
 
-.payment-plan-title,
+.payment-plan-title {
+	margin: 100px auto 30px auto;
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 600;
+	width: 50%;
+}
+
+/*----------------------------------------------------
+Map section CSS
+----------------------------------------------------*/
+
 .map-title {
 	margin: 100px auto 30px auto;
 	text-align: center;
@@ -639,6 +769,10 @@ form {
 	height: 14px !important;
 }
 
+/*----------------------------------------------------
+Footer CSS
+----------------------------------------------------*/
+
 .wave {
 	background-image: url("./pictures/wave3.svg");
 	background-size: cover;
@@ -700,7 +834,6 @@ form {
 
 .info-section * {
 	font-size: 0.8rem;
-	text-decoration: none;
 }
 
 .info-section-nav-item {
@@ -740,9 +873,9 @@ form {
 	width: 47.5%;
 }
 
-.nav-item a {
-	text-decoration: none;
-}
+/*----------------------------------------------------
+Sign Up module CSS
+----------------------------------------------------*/
 
 .sign-up-container {
 	position: fixed;
@@ -753,19 +886,6 @@ form {
 	border-radius: 15px;
 	width: 300px;
 	height: 400px;
-	z-index: 999;
-	padding: 10px 20px;
-}
-
-.not-available-container {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background: #292d35;
-	border-radius: 15px;
-	width: 300px;
-	height: 250px;
 	z-index: 999;
 	padding: 10px 20px;
 }
@@ -840,12 +960,6 @@ form {
 	text-align: center;
 }
 
-.not-available-title {
-	margin: 20px 0 10px 0;
-	font-size: 1.3rem;
-	text-align: center;
-}
-
 .sign-up-button {
 	display: block;
 	text-align: center;
@@ -855,7 +969,29 @@ form {
 	background-color: #65ff62;
 	border-radius: 7px;
 	padding: 7px 10px;
-	text-decoration: none;
+}
+
+/*----------------------------------------------------
+Not Available module CSS
+----------------------------------------------------*/
+
+.not-available-container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #292d35;
+	border-radius: 15px;
+	width: 300px;
+	height: 250px;
+	z-index: 999;
+	padding: 10px 20px;
+}
+
+.not-available-title {
+	margin: 20px 0 10px 0;
+	font-size: 1.3rem;
+	text-align: center;
 }
 
 .not-available-button {
@@ -867,7 +1003,6 @@ form {
 	background-color: #65ff62;
 	border-radius: 7px;
 	padding: 7px 10px;
-	text-decoration: none;
 }
 
 @keyframes loading-animation {

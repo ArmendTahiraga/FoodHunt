@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from "react";const StateContext = createContext();
+import React, { createContext, useContext, useState, useEffect } from "react";
+const StateContext = createContext();
 
 export function ContextProvider({ children }) {
 	const [language, setLanguage] = useState("EN");
@@ -21,6 +22,16 @@ export function ContextProvider({ children }) {
 	});
 	const [accountDetails, setAccountDetails] = useState({});
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [screenWidth, setScreenWidth] = useState(screen.width);
+	const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+
+	function handleHamburgerClick() {
+		setIsHamburgerOpen((prevIsHamburgerOpen) => !prevIsHamburgerOpen);
+	}
+
+	window.addEventListener("resize", () => {
+		setScreenWidth(screen.width);
+	});
 
 	useEffect(() => {
 		if (JSON.parse(localStorage.getItem("account"))) {
@@ -144,6 +155,9 @@ export function ContextProvider({ children }) {
 				setSignUpDetails,
 				isLoggedIn,
 				accountDetails,
+				screenWidth,
+				isHamburgerOpen,
+				handleHamburgerClick,
 			}}
 		>
 			{children}

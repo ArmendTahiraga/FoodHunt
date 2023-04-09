@@ -1,5 +1,4 @@
-import React from "react";
-import logo from "../pictures/LogoBardh60.svg";
+import React from "react";import logo from "../pictures/LogoBardh60.svg";
 import instagram from "../pictures/instagram.svg";
 import facebook from "../pictures/facebook.svg";
 import tiktok from "../pictures/tiktok.svg";
@@ -27,8 +26,9 @@ function Footer() {
 					<a href="#diets" className="info-section-nav-item">
 						{language === "EN" ? "Diets" : "Dietat"}
 					</a>
-
-					<p className="info-section-nav-item">{language === "EN" ? "About" : "Rreth"}</p>
+					<a href="#map" className="info-section-nav-item">
+						{language === "EN" ? "Map" : "Harta"}
+					</a>
 				</div>
 				<div className="info-section partners-container">
 					<h3 className="partners-title">{language === "EN" ? "Partners:" : "Partnerët:"}</h3>
