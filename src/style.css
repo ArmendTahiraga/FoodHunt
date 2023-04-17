@@ -1,4 +1,5 @@
-/*----------------------------------------------------General CSS----------------------------------------------------*/* {
+/*----------------------------------------------------General CSS----------------------------------------------------*/
+* {
 	margin: 0;
 	text-decoration: none;
 	box-sizing: border-box;
@@ -161,93 +162,6 @@ Navbar CSS
 	font-size: 0.9rem;
 }
 
-.hamburger {
-	position: absolute;
-	z-index: 999;
-	width: 20px;
-	height: 10px;
-	position: relative;
-	margin: 11.1px auto;
-	-webkit-transform: rotate(0deg);
-	-moz-transform: rotate(0deg);
-	-o-transform: rotate(0deg);
-	transform: rotate(0deg);
-	-webkit-transition: 0.5s ease-in-out;
-	-moz-transition: 0.5s ease-in-out;
-	-o-transition: 0.5s ease-in-out;
-	transition: 0.5s ease-in-out;
-	cursor: pointer;
-}
-
-.hamburger span {
-	display: block;
-	position: absolute;
-	height: 3px;
-	width: 100%;
-	background: #65ff62;
-	border-radius: 9px;
-	opacity: 1;
-	left: 0;
-	-webkit-transform: rotate(0deg);
-	-moz-transform: rotate(0deg);
-	-o-transform: rotate(0deg);
-	transform: rotate(0deg);
-	-webkit-transition: 0.25s ease-in-out;
-	-moz-transition: 0.25s ease-in-out;
-	-o-transition: 0.25s ease-in-out;
-	transition: 0.25s ease-in-out;
-}
-
-.hamburger span:nth-child(1) {
-	top: 0px;
-}
-
-.hamburger span:nth-child(2),
-.hamburger span:nth-child(3) {
-	top: 8px;
-}
-
-.hamburger span:nth-child(4) {
-	top: 16px;
-}
-
-.hamburger.open span:nth-child(1) {
-	top: 8px;
-	width: 0%;
-	left: 50%;
-}
-
-.hamburger.open span:nth-child(2) {
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
-	transform: rotate(45deg);
-}
-
-.hamburger.open span:nth-child(3) {
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-}
-
-.hamburger.open span:nth-child(4) {
-	top: 8px;
-	width: 0%;
-	left: 50%;
-}
-
-@keyframes an {
-	0% {
-		opacity: 0;
-		transform: translateX(140px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
 @media only screen and (max-width: 800px) {
 	.nav .left * {
 		margin-left: 0;
@@ -255,11 +169,30 @@ Navbar CSS
 }
 
 @media only screen and (max-width: 768px) {
-	.nav {
-		width: 65%;
-	}
 	.nav .right * {
 		margin-left: 0;
+	}
+	.greeting {
+		font-size: 0.8rem;
+	}
+	.language {
+		margin-left: 30px !important;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.nav .left {
+		margin-right: 30px;
+	}
+	.language {
+		margin-left: 20px !important;
+	}
+	.greeting {
+		text-align: right;
+	}
+	.logo {
+		width: calc(50px * 1.3368984);
+		height: 50px;
 	}
 }
 
@@ -302,6 +235,16 @@ Hero CSS
 
 .treasure {
 	color: rgb(255, 228, 73);
+}
+
+@media only screen and (max-width: 768px) {
+	.motto {
+		font-size: 2.6rem;
+	}
+	.health,
+	.treasure {
+		font-size: 3rem;
+	}
 }
 
 /*----------------------------------------------------
@@ -410,6 +353,23 @@ Diet section CSS
 .rec-dot_active {
 	box-shadow: 0 0 1px 3px #ee2f21 !important;
 	background-color: #fff !important;
+}
+
+@media only screen and (max-width: 500px) {
+	.cvyJEp,
+	.dkjKVr {
+		display: none !important;
+	}
+	.diet {
+		height: 200px;
+	}
+	.diet div {
+		transform: translate(0%, 0%);
+		width: 60%;
+	}
+	.background {
+		height: 85%;
+	}
 }
 
 /*----------------------------------------------------
@@ -633,6 +593,31 @@ form {
 	font-size: 1.4rem;
 }
 
+@media only screen and (max-width: 768px) {
+	.search-section {
+		flex-direction: column;
+		justify-content: center;
+		background-image: url("./pictures/blob-haikei.svg");
+		background-size: 600px 600px;
+		background-position: 50% 70%;
+		background-repeat: no-repeat;
+		padding-top: 70px;
+		margin-top: 70px;
+	}
+	.search-section .left {
+		padding: 0 20px;
+		width: 100%;
+		background-image: none;
+	}
+	.search-section .left h2 {
+		text-align: center;
+	}
+	.error {
+		font-size: 1rem;
+		text-align: center;
+	}
+}
+
 /*----------------------------------------------------
 Payment plan section CSS
 ----------------------------------------------------*/
@@ -695,6 +680,16 @@ Payment plan section CSS
 	font-size: 2rem;
 	font-weight: 600;
 	width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+	.plan-container {
+		flex-direction: column;
+		justify-content: center;
+	}
+	.free {
+		margin-bottom: 40px;
+	}
 }
 
 /*----------------------------------------------------
@@ -769,6 +764,12 @@ Map section CSS
 	height: 14px !important;
 }
 
+@media only screen and (max-width: 768px) {
+	.map-title {
+		font-size: 1.6rem;
+	}
+}
+
 /*----------------------------------------------------
 Footer CSS
 ----------------------------------------------------*/
@@ -825,7 +826,7 @@ Footer CSS
 
 .icons-container a {
 	display: block;
-	width: 10px;
+	width: 30px;
 }
 
 .nav-item-container {
@@ -864,13 +865,68 @@ Footer CSS
 .partners {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: start;
 	margin-left: 15px;
 }
 
 .partners .left,
 .partners .right {
 	width: 47.5%;
+}
+
+@media only screen and (max-width: 768px) {
+	.footer,
+	.footer-info {
+		flex-direction: column;
+	}
+	.footer {
+		height: auto;
+	}
+
+	.footer-info {
+		margin-top: 40px;
+		width: 90%;
+	}
+
+	.footer .logo {
+		margin: 10px 0 0 0;
+		width: calc(120px * 1.3368984);
+		height: 120px;
+	}
+
+	.info-section {
+		width: 145px;
+		padding: 0;
+		border-left: none;
+		border-bottom: 1px solid #fff;
+		height: auto;
+		padding-bottom: 5px;
+	}
+
+	.info-section-nav-item {
+		display: inline;
+		margin-right: 15px;
+	}
+
+	.partners-container {
+		margin-top: 30px;
+	}
+
+	.partners {
+		margin-left: 0;
+	}
+
+	.icons-container {
+		height: 52px;
+		padding-bottom: 0 !important;
+		margin-bottom: 10px;
+		border: none;
+	}
+
+	.icons-container a {
+		display: inline-block;
+		margin: 10px 7px 0 7px;
+	}
 }
 
 /*----------------------------------------------------
@@ -971,6 +1027,10 @@ Sign Up module CSS
 	padding: 7px 10px;
 }
 
+input::-ms-reveal {
+	color: #fff;
+}
+
 /*----------------------------------------------------
 Not Available module CSS
 ----------------------------------------------------*/
@@ -1003,6 +1063,16 @@ Not Available module CSS
 	background-color: #65ff62;
 	border-radius: 7px;
 	padding: 7px 10px;
+}
+
+@media only screen and (max-width: 768px) {
+	.not-available-container {
+		width: 250px;
+	}
+
+	.not-available-button {
+		margin-top: 40px;
+	}
 }
 
 @keyframes loading-animation {

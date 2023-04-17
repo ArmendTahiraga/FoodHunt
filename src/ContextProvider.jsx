@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-const StateContext = createContext();
+import React, { createContext, useContext, useState, useEffect } from "react";const StateContext = createContext();
 
 export function ContextProvider({ children }) {
 	const [language, setLanguage] = useState("EN");
@@ -24,6 +23,7 @@ export function ContextProvider({ children }) {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [screenWidth, setScreenWidth] = useState(screen.width);
 	const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+	const [haveResult, setHaveResult] = useState(false);
 
 	function handleHamburgerClick() {
 		setIsHamburgerOpen((prevIsHamburgerOpen) => !prevIsHamburgerOpen);
@@ -42,18 +42,16 @@ export function ContextProvider({ children }) {
 
 	function handleSignUp() {
 		if (signUpDetails.name != "" && signUpDetails.email != "" && signUpDetails.password != "") {
-			console.log(signUpDetails);
 			localStorage.setItem("account", JSON.stringify(signUpDetails));
 			setAccountDetails(JSON.parse(localStorage.getItem("account")));
 			setIsLoggedIn(true);
 		}
 	}
-
 	function getPlacesData(southWest, northEast) {
 		const options = {
 			method: "GET",
 			headers: {
-				"X-RapidAPI-Key": "3e00f26979msh62d2ccabc93f160p1e650ajsn8261f9fd6ccf",
+				"X-RapidAPI-Key": import.meta.env.VITE_RAPIDAPI_TRAVEL_API_KEY,
 				"X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
 			},
 		};
@@ -84,7 +82,6 @@ export function ContextProvider({ children }) {
 						finalResponse.push(response.data[i]);
 					}
 				}
-				console.log(finalResponse);
 				setPlaces(finalResponse);
 			})
 			.catch((err) => console.error(err));
@@ -111,10 +108,15 @@ export function ContextProvider({ children }) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		setSearchResults([]);
+		if (screenWidth <= 768) {
+			setHaveResult(true);
+		}
 		setShowLoader(true);
 		setIsSearchBarOnTop(true);
 		fetch(
-			`https://api.apilayer.com/spoonacular/food/menuItems/search?query=${query}&apikey=CT76s3OJEKCmAZAEYtCi17A5UKiZ7vyA&addMenuItemInformation=true&number=3`
+			`https://api.apilayer.com/spoonacular/food/menuItems/search?query=${query}&apikey=${
+				import.meta.env.VITE_SPOONACULAR_FOOD_API_KEY
+			}&addMenuItemInformation=true&number=${screenWidth <= 768 ? 1 : 3}`
 		)
 			.then((response) => response.json())
 			.then((result) => {
@@ -133,7 +135,6 @@ export function ContextProvider({ children }) {
 	function updateLanguage() {
 		setLanguage((prevLanguage) => (prevLanguage === "EN" ? "AL" : "EN"));
 	}
-
 	return (
 		<StateContext.Provider
 			value={{
@@ -158,6 +159,8 @@ export function ContextProvider({ children }) {
 				screenWidth,
 				isHamburgerOpen,
 				handleHamburgerClick,
+				haveResult,
+				setHaveResult,
 			}}
 		>
 			{children}

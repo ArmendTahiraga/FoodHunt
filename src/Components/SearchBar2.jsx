@@ -1,11 +1,15 @@
-import React from "react";import { motion } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { useStateContext } from "../ContextProvider";
 
 function SearchBar2() {
-	const { language, query, handleChange, handleSubmit } = useStateContext();
+	const { language, query, handleChange, handleSubmit, screenWidth } = useStateContext();
 
 	return (
-		<motion.div className="search-bar" initial={{ transform: "translateY(160px)" }}>
+		<motion.div
+			className="search-bar"
+			initial={{ transform: screenWidth <= 768 ? "translateY(100px)" : "translateY(160px)" }}
+		>
 			<form onSubmit={handleSubmit} className="form">
 				<input
 					type="text"

@@ -1,19 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import GoogleMapReact from "google-map-react";
 import { useStateContext } from "../ContextProvider";
 import greyStar from "../pictures/greyStar.png";
 import yellowStar from "../pictures/yellowStar.png";
-import location from "../pictures/location.png";
 
 function Map() {
 	const { coordinates, places } = useStateContext();
-	const [isMobile, setIsMobile] = useState(screen.width);
-
-	window.addEventListener("resize", checkIsMobile);
-
-	function checkIsMobile() {
-		setIsMobile(screen.width);
-	}
 
 	const placesArray =
 		places &&
@@ -25,15 +17,11 @@ function Map() {
 					key={index}
 					className="restaurant-cards-container"
 				>
-					{isMobile <= 600 ? (
-						<img src={location} />
-					) : (
-						<div className="restaurant-card">
-							<h2 className="restaurant-name">{place.name}</h2>
-							<img src={place.photo.images.large.url} alt={place.name} />
-							<div className="restaurant-rating">{checkRating(Math.ceil(Number(place.rating)))}</div>
-						</div>
-					)}
+					<div className="restaurant-card">
+						<h2 className="restaurant-name">{place.name}</h2>
+						<img src={place.photo.images.large.url} alt={place.name} />
+						<div className="restaurant-rating">{checkRating(Math.ceil(Number(place.rating)))}</div>
+					</div>
 				</div>
 			) : (
 				""
@@ -61,7 +49,7 @@ function Map() {
 	return (
 		<div className="map-container">
 			<GoogleMapReact
-				bootstrapURLKeys={{ key: "AIzaSyDVEd5u2jBcLWX9rcOYWzcET9aOR2UkLh0" }}
+				bootstrapURLKeys={{ key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY }}
 				defaultCenter={{ lat: 42.0693, lng: 19.5033 }}
 				center={coordinates}
 				defaultZoom={16}

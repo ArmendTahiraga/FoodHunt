@@ -1,4 +1,5 @@
-import React from "react";import logo from "../pictures/LogoBardh60.svg";
+import React from "react";
+import logo from "../pictures/LogoBardh60.svg";
 import instagram from "../pictures/instagram.svg";
 import facebook from "../pictures/facebook.svg";
 import tiktok from "../pictures/tiktok.svg";

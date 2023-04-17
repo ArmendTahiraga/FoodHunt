@@ -1,4 +1,5 @@
-import React from "react";import Carousel from "react-elastic-carousel";
+import React from "react";
+import Carousel from "react-elastic-carousel";
 import NavBar from "../Components/NavBar";
 import Hero from "../Components/Hero";
 import Diets from "../Components/Diets";
@@ -14,13 +15,13 @@ import { useStateContext } from "../ContextProvider";
 import { Outlet, Link } from "react-router-dom";
 
 function App() {
-	const { language, searchResults, isSearchBarOnTop, showLoader, error } = useStateContext();
+	const { language, searchResults, isSearchBarOnTop, showLoader, error, haveResult, screenWidth } = useStateContext();
 
 	const dietArray =
 		language === "EN"
 			? dietDataEN.map((i, index) => <Diets key={index} title={i.title} cal={i.cal} img={i.img} />)
 			: dietDataAL.map((i, index) => <Diets key={index} title={i.title} cal={i.cal} img={i.img} />);
-	let result;
+	let result = [];
 	if (searchResults) {
 		result = searchResults.map((i) => (
 			<Results
@@ -34,7 +35,6 @@ function App() {
 			/>
 		));
 	}
-
 	return (
 		<>
 			<div>
@@ -59,7 +59,13 @@ function App() {
 						<Link to="/not-available">{language === "EN" ? "Get full access!" : "Fito akses të plotë"}</Link>
 					</button>
 				</div>
-				<div className="right">
+				<div
+					className="right"
+					style={{
+						marginBottom: haveResult ? "-200px" : "0px",
+						padding: haveResult ? "80px 20px 20px 20px" : "20px",
+					}}
+				>
 					{isSearchBarOnTop ? <SearchBar /> : <SearchBar2 />}
 					{error ? (
 						<div className="results-container">
@@ -74,7 +80,18 @@ function App() {
 					)}
 				</div>
 			</section>
-			<h1 className="payment-plan-title">{language === "EN" ? "Payment plans" : "Planet e pagesës"}</h1>
+			<h1
+				className="payment-plan-title"
+				style={{
+					margin: haveResult
+						? "350px auto 30px auto"
+						: screenWidth <= 768
+						? "150px auto 30px auto"
+						: "100px auto 30px auto",
+				}}
+			>
+				{language === "EN" ? "Payment plans" : "Planet e pagesës"}
+			</h1>
 			<PaymentPlan />
 			<div id="map"></div>
 			<div className="map-title">

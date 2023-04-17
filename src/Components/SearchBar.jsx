@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import { useStateContext } from "../ContextProvider";
 
 function SearchBar() {
-	const { language, query, handleChange, handleSubmit } = useStateContext();
+	const { language, query, handleChange, handleSubmit, screenWidth } = useStateContext();
 
 	return (
 		<motion.div
 			className="search-bar"
-			initial={{ transform: "translateY(160px)" }}
+			initial={{ transform: screenWidth <= 768 ? "translateY(100px)" : "translateY(160px)" }}
 			animate={{ transform: "translateY(0px)" }}
 			exit={{ transform: "translateY(0px)" }}
 		>

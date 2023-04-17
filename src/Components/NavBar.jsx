@@ -26,12 +26,24 @@ function NavBar() {
 				</div>
 				{screenWidth <= 768 ? (
 					<div className="right">
-						<div className={isHamburgerOpen ? "hamburger open" : "hamburger"} onClick={handleHamburgerClick}>
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
+						{isLoggedIn ? (
+							<p className="greeting">
+								{language === "EN" ? "Hello" : "Përshendetje"} {accountDetails.name}
+							</p>
+						) : (
+							<Link to={"/sign-up"} className="sign-up">
+								{language === "EN" ? "Sign Up" : "Regjistrohu"}
+							</Link>
+						)}
+						<h4
+							className="language"
+							onClick={() => updateLanguage()}
+							style={{
+								marginRight: language === "AL" ? "2px" : 0,
+							}}
+						>
+							{language}
+						</h4>
 					</div>
 				) : (
 					<div className="right">
