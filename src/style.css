@@ -1,5 +1,4 @@
-/*----------------------------------------------------General CSS----------------------------------------------------*/
-* {
+/*----------------------------------------------------General CSS----------------------------------------------------*/* {
 	margin: 0;
 	text-decoration: none;
 	box-sizing: border-box;
@@ -328,22 +327,23 @@ Diet section CSS
 	font-weight: 600;
 }
 
-.cvyJEp {
+.rec-arrow {
 	background-color: #ee2f21 !important;
 	color: #fff !important;
 	box-shadow: none !important;
 }
 
-.cvyJEp:hover:enabled,
-.cvyJEp:hover:enabled {
+.rec-arrow:hover:enabled,
+.rec-arrow:hover:enabled {
 	background-color: #ee2f21 !important;
 	color: #fff !important;
 	box-shadow: none !important;
 }
 
-.dkjKVr:disabled {
-	background-color: #fff;
+.rec-arrow:disabled {
+	background-color: #fff !important;
 	cursor: pointer !important;
+	color: rgb(153, 153, 153) !important;
 }
 
 .rec-dot {
@@ -356,8 +356,8 @@ Diet section CSS
 }
 
 @media only screen and (max-width: 500px) {
-	.cvyJEp,
-	.dkjKVr {
+	.rec-arrow,
+	.rec-arrow {
 		display: none !important;
 	}
 	.diet {
@@ -932,6 +932,10 @@ Footer CSS
 /*----------------------------------------------------
 Sign Up module CSS
 ----------------------------------------------------*/
+
+.module {
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
 
 .sign-up-container {
 	position: fixed;

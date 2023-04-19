@@ -6,7 +6,7 @@ function SignUp() {
 	const { language, handleSignUp, setSignUpDetails } = useStateContext();
 
 	return (
-		<div className="sign-up-container">
+		<div className="sign-up-container module">
 			<Link to="/" className="close">
 				<span className="material-symbols-outlined">close</span>
 			</Link>

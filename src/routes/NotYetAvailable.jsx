@@ -6,7 +6,7 @@ function NotYetAvailable() {
 	const { language } = useStateContext();
 
 	return (
-		<div className="not-available-container">
+		<div className="not-available-container module">
 			<Link to="/" className="close">
 				<span className="material-symbols-outlined">close</span>
 			</Link>
