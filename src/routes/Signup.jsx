@@ -1,15 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useStateContext } from "../ContextProvider";
 
 function SignUp() {
 	const { language, handleSignUp, setSignUpDetails } = useStateContext();
+	const location = useLocation();
 
 	return (
 		<div className="sign-up-container module">
-			<Link to="/" className="close">
-				<span className="material-symbols-outlined">close</span>
-			</Link>
+			{location.pathname === "/sign-up" ? (
+				<Link to="/" className="close">
+					<span className="material-symbols-outlined">close</span>
+				</Link>
+			) : (
+				<Link to="/about" className="close">
+					<span className="material-symbols-outlined">close</span>
+				</Link>
+			)}
+
 			<h2 className="sign-up-title">{language === "EN" ? "Sign Up" : "Regjistrohu"}</h2>
 			<div className="form-control">
 				<input
@@ -86,9 +94,15 @@ function SignUp() {
 					)}
 				</label>
 			</div>
-			<Link to="/" onClick={handleSignUp} className="sign-up-button">
-				{language === "EN" ? "Sign Up" : "Regjistrohu"}
-			</Link>
+			{location.pathname === "/sign-up" ? (
+				<Link to="/" onClick={handleSignUp} className="sign-up-button">
+					{language === "EN" ? "Sign Up" : "Regjistrohu"}
+				</Link>
+			) : (
+				<Link to="/about" onClick={handleSignUp} className="sign-up-button">
+					{language === "EN" ? "Sign Up" : "Regjistrohu"}
+				</Link>
+			)}
 		</div>
 	);
 }

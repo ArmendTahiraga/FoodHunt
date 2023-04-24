@@ -4,9 +4,12 @@ import instagram from "../pictures/instagram.svg";
 import facebook from "../pictures/facebook.svg";
 import tiktok from "../pictures/tiktok.svg";
 import { useStateContext } from "../ContextProvider";
+import { Link, useLocation } from "react-router-dom";
 
 function Footer() {
 	const { language, places } = useStateContext();
+	const location = useLocation();
+
 	const placeNamesArray = places.map((place, index) => (
 		<p className="partner" key={index}>
 			{place.name}
@@ -20,16 +23,32 @@ function Footer() {
 			</div>
 			<div className="footer-info">
 				<div className="info-section nav-item-container">
-					<a href="#" className="info-section-nav-item">
-						{language === "EN" ? "Home" : "Shtëpi"}
-					</a>
-
-					<a href="#diets" className="info-section-nav-item">
-						{language === "EN" ? "Diets" : "Dietat"}
-					</a>
-					<a href="#map" className="info-section-nav-item">
-						{language === "EN" ? "Map" : "Harta"}
-					</a>
+					{location.pathname === "/" ? (
+						<a href="#" className="info-section-nav-item">
+							{language === "EN" ? "Home" : "Shtëpi"}
+						</a>
+					) : (
+						<Link to="/" className="info-section-nav-item">
+							{language === "EN" ? "Home" : "Shtëpi"}
+						</Link>
+					)}
+					{location.pathname === "/about" ? (
+						<a href="#" className="info-section-nav-item">
+							{language === "EN" ? "About" : "Rreth"}
+						</a>
+					) : (
+						<Link to="/about" className="info-section-nav-item">
+							{language === "EN" ? "About" : "Rreth"}
+						</Link>
+					)}
+					<div className="nextRow">
+						<a href="/#diets" className="info-section-nav-item">
+							{language === "EN" ? "Diets" : "Dietat"}
+						</a>
+						<a href="/#map" className="info-section-nav-item">
+							{language === "EN" ? "Map" : "Harta"}
+						</a>
+					</div>
 				</div>
 				<div className="info-section partners-container">
 					<h3 className="partners-title">{language === "EN" ? "Partners:" : "Partnerët:"}</h3>

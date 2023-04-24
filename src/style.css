@@ -1,4 +1,5 @@
-/*----------------------------------------------------General CSS----------------------------------------------------*/* {
+/*----------------------------------------------------General CSS----------------------------------------------------*/
+* {
 	margin: 0;
 	text-decoration: none;
 	box-sizing: border-box;
@@ -127,6 +128,10 @@ Navbar CSS
 	background: #65ff62;
 }
 
+.home {
+	margin-right: -40px;
+}
+
 .logo {
 	margin-top: 5px;
 	width: calc(60px * 1.3368984);
@@ -161,6 +166,111 @@ Navbar CSS
 	font-size: 0.9rem;
 }
 
+.hamburger {
+	position: absolute;
+	z-index: 999;
+	width: 20px;
+	height: 10px;
+	position: relative;
+	margin: 11.1px auto;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
+	cursor: pointer;
+}
+
+.hamburger span {
+	display: block;
+	position: absolute;
+	height: 3px;
+	width: 100%;
+	background: #65ff62;
+	border-radius: 9px;
+	opacity: 1;
+	left: 0;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: 0.25s ease-in-out;
+	-moz-transition: 0.25s ease-in-out;
+	-o-transition: 0.25s ease-in-out;
+	transition: 0.25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+	top: 0px;
+}
+
+.hamburger span:nth-child(2),
+.hamburger span:nth-child(3) {
+	top: 8px;
+}
+
+.hamburger span:nth-child(4) {
+	top: 16px;
+}
+
+.hamburger.open span:nth-child(1) {
+	top: 8px;
+	width: 0%;
+	left: 50%;
+}
+
+.hamburger.open span:nth-child(2) {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.hamburger.open span:nth-child(3) {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.hamburger.open span:nth-child(4) {
+	top: 8px;
+	width: 0%;
+	left: 50%;
+}
+.menu {
+	width: 35vw;
+	height: 300px;
+	background-color: rgb(30, 31, 32);
+	position: absolute;
+	top: 0;
+	z-index: -1;
+}
+
+.menu-item-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	padding-top: 40px;
+}
+
+.menu-item-container * {
+	margin-bottom: 10px;
+}
+
+.hidden {
+	display: none;
+}
+
+.visible {
+	display: inherit;
+}
+
 @media only screen and (max-width: 800px) {
 	.nav .left * {
 		margin-left: 0;
@@ -174,8 +284,11 @@ Navbar CSS
 	.greeting {
 		font-size: 0.8rem;
 	}
-	.language {
-		margin-left: 30px !important;
+	.nav .right {
+		margin-right: 52px;
+	}
+	.link {
+		width: 54.2px;
 	}
 }
 
@@ -183,11 +296,8 @@ Navbar CSS
 	.nav .left {
 		margin-right: 30px;
 	}
-	.language {
-		margin-left: 20px !important;
-	}
 	.greeting {
-		text-align: right;
+		text-align: center;
 	}
 	.logo {
 		width: calc(50px * 1.3368984);
@@ -809,7 +919,7 @@ Footer CSS
 
 .info-section {
 	width: 30%;
-	padding: 30px 0 20px 20px;
+	padding: 10px 0 20px 20px;
 	border-left: 1px solid #fff;
 	height: 150px;
 }
@@ -840,7 +950,7 @@ Footer CSS
 .info-section-nav-item {
 	display: block;
 	width: 20px;
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	cursor: pointer;
@@ -926,6 +1036,12 @@ Footer CSS
 	.icons-container a {
 		display: inline-block;
 		margin: 10px 7px 0 7px;
+	}
+	.nextRow {
+		display: block;
+	}
+	.nav-item-container {
+		padding-left: 19px;
 	}
 }
 

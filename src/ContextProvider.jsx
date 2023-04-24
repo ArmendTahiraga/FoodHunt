@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from "react";const StateContext = createContext();
+import React, { createContext, useContext, useState, useEffect } from "react";
+const StateContext = createContext();
 
 export function ContextProvider({ children }) {
 	const [language, setLanguage] = useState("EN");
@@ -87,7 +88,7 @@ export function ContextProvider({ children }) {
 			.catch((err) => console.error(err));
 	}
 	useEffect(() => {
-		getPlacesData(bounds.southWest, bounds.northEast);
+		// getPlacesData(bounds.southWest, bounds.northEast);
 	}, []);
 
 	function changeBackground() {
