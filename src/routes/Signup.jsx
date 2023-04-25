@@ -1,13 +1,13 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React from "react";import { Link, useLocation } from "react-router-dom";
 import { useStateContext } from "../ContextProvider";
+import { motion } from "framer-motion";
 
 function SignUp() {
-	const { language, handleSignUp, setSignUpDetails } = useStateContext();
+	const { language, handleSignUp, setSignUpDetails, dropIn } = useStateContext();
 	const location = useLocation();
 
 	return (
-		<div className="sign-up-container module">
+		<motion.div className="sign-up-container module" variants={dropIn} initial="hidden" animate="visible" exit="exit">
 			{location.pathname === "/sign-up" ? (
 				<Link to="/" className="close">
 					<span className="material-symbols-outlined">close</span>
@@ -103,7 +103,7 @@ function SignUp() {
 					{language === "EN" ? "Sign Up" : "Regjistrohu"}
 				</Link>
 			)}
-		</div>
+		</motion.div>
 	);
 }
 

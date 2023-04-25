@@ -31,7 +31,7 @@ function App() {
 				imgBackup={i.image}
 				restaurantChain={i.restaurantChain}
 				proteins={i.nutrition.protein}
-				calories={i.nutrition.calories}
+				calories={`${Math.floor(i.nutrition.calories)}kcal`}
 			/>
 		));
 	}

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useStateContext } from "../ContextProvider";
 
 function SearchBar() {
-	const { language, query, handleChange, handleSubmit, screenWidth } = useStateContext();
+	const { language, query, handleChange, handleSubmit, screenWidth, placeholder } = useStateContext();
 
 	return (
 		<motion.div
@@ -16,7 +16,7 @@ function SearchBar() {
 				<input
 					type="text"
 					className="query"
-					placeholder={language === "EN" ? "Food" : "Ushqime"}
+					placeholder={placeholder ? placeholder : language === "EN" ? "Food" : "Ushqime"}
 					onChange={handleChange}
 					value={query}
 				/>

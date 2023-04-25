@@ -14,7 +14,7 @@ function Results({ img, imgBackup, title, restaurantChain, proteins, calories })
 			</div>
 			<div className="nutrition">
 				<p className="result-calories">
-					{language === "EN" ? "Calories:" : "Kaloritë: "} {calories} kcal
+					{language === "EN" ? "Calories:" : "Kaloritë: "} {calories}
 				</p>
 				<p className="result-proteins">
 					{language === "EN" ? "Proteins:" : "Proteinat: "} {proteins}

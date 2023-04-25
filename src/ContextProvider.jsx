@@ -25,6 +25,27 @@ export function ContextProvider({ children }) {
 	const [screenWidth, setScreenWidth] = useState(screen.width);
 	const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 	const [haveResult, setHaveResult] = useState(false);
+	const [placeholder, setPlaceholder] = useState("");
+	const dropIn = {
+		hidden: {
+			top: "-50%",
+			opacity: 0,
+		},
+		visible: {
+			top: "50%",
+			opacity: 1,
+			transition: {
+				duration: 0.5,
+				type: "spring",
+				damping: 25,
+				stiffness: 500,
+			},
+		},
+		exit: {
+			top: "-50%",
+			opacity: 0,
+		},
+	};
 
 	function handleHamburgerClick() {
 		setIsHamburgerOpen((prevIsHamburgerOpen) => !prevIsHamburgerOpen);
@@ -109,6 +130,7 @@ export function ContextProvider({ children }) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		setSearchResults([]);
+		setPlaceholder(query);
 		if (screenWidth <= 768) {
 			setHaveResult(true);
 		}
@@ -117,14 +139,28 @@ export function ContextProvider({ children }) {
 		fetch(
 			`https://api.apilayer.com/spoonacular/food/menuItems/search?query=${query}&apikey=${
 				import.meta.env.VITE_SPOONACULAR_FOOD_API_KEY
-			}&addMenuItemInformation=true&number=${screenWidth <= 768 ? 1 : 3}`
+			}&addMenuItemInformation=true&number=${screenWidth <= 768 ? 1 : 10}`
 		)
 			.then((response) => response.json())
 			.then((result) => {
 				setError(false);
 				setShowLoader(false);
 				if (result.totalMenuItems !== 0) {
-					setSearchResults(result.menuItems);
+					setSearchResults(() => {
+						if (screenWidth > 768) {
+							let res = [];
+							for (let i = 0; i < result.menuItems.length; i++) {
+								if (i != 0) {
+									if (result.menuItems[i].restaurantChain != result.menuItems[i - 1].restaurantChain) {
+										res.push(result.menuItems[i]);
+									}
+								}
+							}
+							return res.slice(0, 3);
+						} else {
+							return result.menuItems;
+						}
+					});
 				} else {
 					throw new Error("An error has happened");
 				}
@@ -132,7 +168,6 @@ export function ContextProvider({ children }) {
 			.catch(() => setError(true));
 		setQuery("");
 	}
-
 	function updateLanguage() {
 		setLanguage((prevLanguage) => (prevLanguage === "EN" ? "AL" : "EN"));
 	}
@@ -162,6 +197,8 @@ export function ContextProvider({ children }) {
 				handleHamburgerClick,
 				haveResult,
 				setHaveResult,
+				placeholder,
+				dropIn,
 			}}
 		>
 			{children}

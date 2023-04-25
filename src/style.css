@@ -1,5 +1,4 @@
-/*----------------------------------------------------General CSS----------------------------------------------------*/
-* {
+/*----------------------------------------------------General CSS----------------------------------------------------*/* {
 	margin: 0;
 	text-decoration: none;
 	box-sizing: border-box;
@@ -54,6 +53,7 @@ Navbar CSS
 	left: 0;
 	z-index: 999;
 	width: 100%;
+	transition: background-color 0.5s;
 }
 
 .nav-container.active {
@@ -437,6 +437,11 @@ Diet section CSS
 	font-weight: 600;
 }
 
+.get-diet a {
+	display: inline-block;
+	width: 100px;
+}
+
 .rec-arrow {
 	background-color: #ee2f21 !important;
 	color: #fff !important;
@@ -457,12 +462,16 @@ Diet section CSS
 }
 
 .rec-dot {
+	box-shadow: none !important;
 	background-color: #fff !important;
 }
 
+.rec-dot {
+	box-shadow: none;
+}
+
 .rec-dot_active {
-	box-shadow: 0 0 1px 3px #ee2f21 !important;
-	background-color: #fff !important;
+	background-color: #ee2f21 !important;
 }
 
 @media only screen and (max-width: 500px) {
@@ -614,6 +623,7 @@ form {
 
 .result-title {
 	font-weight: 500;
+	font-size: 0.9rem;
 }
 
 .result-calories {
@@ -646,7 +656,7 @@ form {
 
 .result-img {
 	width: 100%;
-	height: 165.2px;
+	height: 150px;
 	object-fit: cover;
 	border-radius: 20px 20px 0 0;
 }
@@ -1055,7 +1065,6 @@ Sign Up module CSS
 
 .sign-up-container {
 	position: fixed;
-	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background: #292d35;

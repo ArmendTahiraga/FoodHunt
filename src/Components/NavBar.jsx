@@ -1,4 +1,5 @@
-import React, { useState } from "react";import { Link, useLocation } from "react-router-dom";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import { useStateContext } from "../ContextProvider";
 import logo from "../pictures/LogoBardh60.svg";
 
@@ -14,6 +15,7 @@ function NavBar() {
 		handleHamburgerClick,
 	} = useStateContext();
 	const location = useLocation();
+	console.log(location.pathname);
 
 	return (
 		<div className={navbarBackground ? "nav-container active" : "nav-container"}>
@@ -45,7 +47,12 @@ function NavBar() {
 										<h2
 											className="nav-item home"
 											style={{
-												color: location.pathname === "/" ? "#65ff62" : "#fff",
+												color:
+													location.pathname === "/" ||
+													location.pathname === "/sign-up" ||
+													location.pathname === "/not-available"
+														? "#65ff62"
+														: "#fff",
 											}}
 										>
 											{language === "EN" ? "Home" : "Shtëpi"}
@@ -56,7 +63,12 @@ function NavBar() {
 										<h2
 											className="nav-item home"
 											style={{
-												color: location.pathname === "/" ? "#65ff62" : "#fff",
+												color:
+													location.pathname === "/" ||
+													location.pathname === "/sign-up" ||
+													location.pathname === "/not-available"
+														? "#65ff62"
+														: "#fff",
 											}}
 										>
 											{language === "EN" ? "Home" : "Shtëpi"}
@@ -68,7 +80,12 @@ function NavBar() {
 										<h2
 											className="nav-item"
 											style={{
-												color: location.pathname === "/about" ? "#65ff62" : "#fff",
+												color:
+													location.pathname === "/about" ||
+													location.pathname === "/about/sign-up" ||
+													location.pathname === "/about/not-available"
+														? "#65ff62"
+														: "#fff",
 											}}
 										>
 											{language === "EN" ? "About" : "Rreth"}
@@ -79,7 +96,12 @@ function NavBar() {
 										<h2
 											className="nav-item"
 											style={{
-												color: location.pathname === "/about" ? "#65ff62" : "#fff",
+												color:
+													location.pathname === "/about" ||
+													location.pathname === "/about/sign-up" ||
+													location.pathname === "/about/not-available"
+														? "#65ff62"
+														: "#fff",
 											}}
 										>
 											{language === "EN" ? "About" : "Rreth"}
@@ -143,7 +165,12 @@ function NavBar() {
 								<h2
 									className="nav-item home"
 									style={{
-										color: location.pathname === "/" ? "#65ff62" : "#fff",
+										color:
+											location.pathname === "/" ||
+											location.pathname === "/sign-up" ||
+											location.pathname === "/not-available"
+												? "#65ff62"
+												: "#fff",
 									}}
 								>
 									{language === "EN" ? "Home" : "Shtëpi"}
@@ -154,7 +181,12 @@ function NavBar() {
 								<h2
 									className="nav-item home"
 									style={{
-										color: location.pathname === "/" ? "#65ff62" : "#fff",
+										color:
+											location.pathname === "/" ||
+											location.pathname === "/sign-up" ||
+											location.pathname === "/not-available"
+												? "#65ff62"
+												: "#fff",
 									}}
 								>
 									{language === "EN" ? "Home" : "Shtëpi"}
@@ -166,7 +198,12 @@ function NavBar() {
 								<h2
 									className="nav-item"
 									style={{
-										color: location.pathname === "/about" ? "#65ff62" : "#fff",
+										color:
+											location.pathname === "/about" ||
+											location.pathname === "/about/sign-up" ||
+											location.pathname === "/about/not-available"
+												? "#65ff62"
+												: "#fff",
 									}}
 								>
 									{language === "EN" ? "About" : "Rreth"}
@@ -177,7 +214,12 @@ function NavBar() {
 								<h2
 									className="nav-item"
 									style={{
-										color: location.pathname === "/about" ? "#65ff62" : "#fff",
+										color:
+											location.pathname === "/about" ||
+											location.pathname === "/about/sign-up" ||
+											location.pathname === "/about/not-available"
+												? "#65ff62"
+												: "#fff",
 									}}
 								>
 									{language === "EN" ? "About" : "Rreth"}
