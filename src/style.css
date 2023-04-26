@@ -1,4 +1,5 @@
-/*----------------------------------------------------General CSS----------------------------------------------------*/* {
+/*----------------------------------------------------General CSS----------------------------------------------------*/
+* {
 	margin: 0;
 	text-decoration: none;
 	box-sizing: border-box;
@@ -1203,6 +1204,123 @@ Not Available module CSS
 		margin-top: 40px;
 	}
 }
+
+/*----------------------------------------------------
+About CSS
+----------------------------------------------------*/
+
+.about-main {
+	height: 100vh;
+	padding: 0 2%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* flex-direction: column; */
+}
+
+.about-main .left {
+	width: 40%;
+	/* display: flex;
+	justify-content: space-around;
+	align-items: center; */
+}
+
+.about-main .right {
+	height: 100%;
+	background-image: url("./pictures/magicpattern-blob-1682533133901.svg");
+	background-repeat: no-repeat;
+	background-position: -20px -20px;
+	background-size: 750px;
+	width: 55%;
+	display: flex;
+	justify-content: center;
+	align-items: start;
+	flex-direction: column;
+	padding: 0 12%;
+}
+
+.about-member {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-size: 200px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.member {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}
+
+.member-name {
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.member-role {
+	font-size: 0.8rem;
+}
+
+.armend-container,
+.luis-container {
+	justify-content: end;
+}
+
+.armend-info *,
+.luis-info * {
+	text-align: right;
+}
+
+.erti-container {
+	transform: translateY(60px);
+}
+
+.armend-container,
+.olger-container,
+.luis-container {
+	transform: translateY(30px);
+}
+
+.luis-container {
+	transform: translateY(10px);
+}
+
+.erti {
+	margin-right: 15px;
+	background-image: url("./pictures/erti.png");
+}
+
+.armend {
+	margin-left: 15px;
+	background-image: url("./pictures/armend.png");
+}
+
+.olger {
+	margin-right: 15px;
+	background-image: url("./pictures/olger.png");
+}
+
+.luis {
+	margin-left: 15px;
+	background-image: url("./pictures/luis.png");
+}
+
+.business-info {
+	text-align: justify;
+	font-size: 0.9rem;
+}
+
+.welcome {
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+
+/*----------------------------------------------------
+Animations CSS
+----------------------------------------------------*/
 
 @keyframes loading-animation {
 	0% {

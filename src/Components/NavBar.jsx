@@ -15,7 +15,6 @@ function NavBar() {
 		handleHamburgerClick,
 	} = useStateContext();
 	const location = useLocation();
-	console.log(location.pathname);
 
 	return (
 		<div className={navbarBackground ? "nav-container active" : "nav-container"}>
