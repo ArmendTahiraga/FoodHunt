@@ -1211,32 +1211,31 @@ About CSS
 
 .about-main {
 	height: 100vh;
-	padding: 0 2%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	/* flex-direction: column; */
-}
-
-.about-main .left {
-	width: 40%;
-	/* display: flex;
-	justify-content: space-around;
-	align-items: center; */
 }
 
 .about-main .right {
+	width: 50%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto auto;
+	row-gap: 40px;
+	padding-top: 40px;
+}
+
+.about-main .left {
+	border-radius: 0 200px 200px 0;
+	background-color: #ee2f21;
+	padding: 70px 0;
 	height: 100%;
-	background-image: url("./pictures/magicpattern-blob-1682533133901.svg");
-	background-repeat: no-repeat;
-	background-position: -20px -20px;
-	background-size: 750px;
-	width: 55%;
+	width: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: start;
 	flex-direction: column;
-	padding: 0 12%;
+	padding: 0 7%;
 }
 
 .about-member {
@@ -1250,8 +1249,18 @@ About CSS
 
 .member {
 	display: flex;
-	justify-content: start;
+	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+	margin: 0 30px;
+}
+
+.member-info {
+	width: 180px;
+}
+
+.member-info * {
+	text-align: center;
 }
 
 .member-name {
@@ -1265,45 +1274,22 @@ About CSS
 
 .armend-container,
 .luis-container {
-	justify-content: end;
-}
-
-.armend-info *,
-.luis-info * {
-	text-align: right;
-}
-
-.erti-container {
-	transform: translateY(60px);
-}
-
-.armend-container,
-.olger-container,
-.luis-container {
-	transform: translateY(30px);
-}
-
-.luis-container {
-	transform: translateY(10px);
+	justify-content: center;
 }
 
 .erti {
-	margin-right: 15px;
 	background-image: url("./pictures/erti.png");
 }
 
 .armend {
-	margin-left: 15px;
 	background-image: url("./pictures/armend.png");
 }
 
 .olger {
-	margin-right: 15px;
 	background-image: url("./pictures/olger.png");
 }
 
 .luis {
-	margin-left: 15px;
 	background-image: url("./pictures/luis.png");
 }
 
